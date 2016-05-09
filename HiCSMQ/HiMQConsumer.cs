@@ -31,11 +31,23 @@ namespace HiCSMQ
             impl.Destory();
         }
 
+        /// <summary>
+        /// 监听主题
+        /// </summary>
+        /// <param name="topic"></param>
+        /// <param name="evt"></param>
+        /// <returns></returns>
         public bool Listen(string topic, HiCSMQ.Impl.MQMsgCallback evt)
         {
             return impl.Listen(topic, evt);
         }
 
+        /// <summary>
+        /// 监听主题
+        /// </summary>
+        /// <param name="topics"></param>
+        /// <param name="evt"></param>
+        /// <returns></returns>
         public bool Listen(List<string> topics, HiCSMQ.Impl.MQMsgCallback evt)
         {
             return impl.Listen(topics, evt);
