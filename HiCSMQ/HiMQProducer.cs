@@ -22,6 +22,15 @@ namespace HiCSMQ
         }
 
         /// <summary>
+        /// 关闭
+        /// </summary>
+        /// <returns></returns>
+        public void Destory()
+        {
+            impl.Destory();
+        }
+
+        /// <summary>
         /// 发送主题消息
         /// </summary>
         /// <param name="topic"></param>
@@ -41,15 +50,6 @@ namespace HiCSMQ
         public int SendTopic(string topic, List<string> msgs)
         {
             return impl.SendTopic(topic, msgs);
-        }
-	
-	    /// <summary>
-	    /// 关闭
-	    /// </summary>
-	    /// <returns></returns>
-        public void Destory()
-        {
-            impl.Destory();
         }
 
         HiCSMQ.Impl.HiMQProducerImpl impl = new Impl.HiMQProducerImpl();

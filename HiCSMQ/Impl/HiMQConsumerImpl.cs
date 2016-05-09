@@ -8,7 +8,7 @@ using Apache.NMS.ActiveMQ.Commands;
 namespace HiCSMQ.Impl
 {
     public delegate void MQMsgCallback(string topic, string msg);
-    class HiMQCousumerImpl : HiMQBase
+    class HiMQConsumerImpl : HiMQBase
     {
         MQMsgCallback callback = null;
         public bool Listen(string topic, MQMsgCallback evt)

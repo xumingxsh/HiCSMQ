@@ -45,7 +45,7 @@
     <Compile Include="HiMQConsumer.cs" />
     <Compile Include="HiMQProducer.cs" />
     <Compile Include="Impl\HiMQBase.cs" />
-    <Compile Include="Impl\HiMQCousumerImpl.cs" />
+    <Compile Include="Impl\HiMQConsumerImpl.cs" />
     <Compile Include="Impl\HiMQProducerImpl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Test\UnitTest_Comsumer.cs" />

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using HiCSMQ.Impl;
+using HiCSMQ;
 
 namespace HiCSMQ.Test
 {
@@ -15,7 +15,7 @@ namespace HiCSMQ.Test
             bool isReceive = false;
             string content = "this is a test";
             string title = "TEST";
-            HiMQCousumerImpl consumer = new HiMQCousumerImpl();
+            HiMQConsumer consumer = new HiMQConsumer();
             consumer.Init("127.0.0.1", 61616, "admin", "admin");
             consumer.Listen(title, (string topic, string text) =>
                 {
@@ -25,7 +25,7 @@ namespace HiCSMQ.Test
                     Assert.IsTrue(text.Equals(content));
                 });
 
-            HiMQProducerImpl producer = new HiMQProducerImpl();
+            HiMQProducer producer = new HiMQProducer();
             producer.Init("127.0.0.1", 61616, "admin", "admin");
             bool ret = producer.SendTopic(title, content);
             Assert.IsTrue(ret);
@@ -48,7 +48,7 @@ namespace HiCSMQ.Test
             titles.Add("TEST2");
             titles.Add("TEST3");
             titles.Add("TEST4");
-            HiMQCousumerImpl consumer = new HiMQCousumerImpl();
+            HiMQConsumer consumer = new HiMQConsumer();
             consumer.Init("127.0.0.1", 61616, "admin", "admin");
             consumer.Listen(titles, (string topic, string text) =>
             {
@@ -58,7 +58,7 @@ namespace HiCSMQ.Test
                 Assert.IsTrue(text.Equals(content));
             });
 
-            HiMQProducerImpl producer = new HiMQProducerImpl();
+            HiMQProducer producer = new HiMQProducer();
             producer.Init("127.0.0.1", 61616, "admin", "admin");
             foreach(string it in titles)
             {
@@ -85,7 +85,7 @@ namespace HiCSMQ.Test
             contents.Add("this is a test4");
             string title = "TEST";
             int index = 0;
-            HiMQCousumerImpl consumer = new HiMQCousumerImpl();
+            HiMQConsumer consumer = new HiMQConsumer();
             consumer.Init("127.0.0.1", 61616, "admin", "admin");
             consumer.Listen(title, (string topic, string text) =>
             {
@@ -95,7 +95,7 @@ namespace HiCSMQ.Test
                     Assert.IsTrue(text.StartsWith("this is a test"));
                 });
 
-            HiMQProducerImpl producer = new HiMQProducerImpl();
+            HiMQProducer producer = new HiMQProducer();
             producer.Init("127.0.0.1", 61616, "admin", "admin");
             int ret = producer.SendTopic(title, contents);
             Assert.IsTrue(ret == 4);

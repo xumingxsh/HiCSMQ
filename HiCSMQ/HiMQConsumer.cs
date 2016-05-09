@@ -12,5 +12,35 @@ namespace HiCSMQ
     /// </summary>
     public sealed class HiMQConsumer
     {
+        /// <summary>
+        /// 打开
+        /// </summary>
+        /// <param name="connStr"></param>
+        /// <returns></returns>
+        public void Init(string ip, ushort port, string user, string pwd)
+        {
+            impl.Init(ip, port, user, pwd);
+        }
+
+        /// <summary>
+        /// 关闭
+        /// </summary>
+        /// <returns></returns>
+        public void Destory()
+        {
+            impl.Destory();
+        }
+
+        public bool Listen(string topic, HiCSMQ.Impl.MQMsgCallback evt)
+        {
+            return impl.Listen(topic, evt);
+        }
+
+        public bool Listen(List<string> topics, HiCSMQ.Impl.MQMsgCallback evt)
+        {
+            return impl.Listen(topics, evt);
+        }
+
+        HiCSMQ.Impl.HiMQConsumerImpl impl = new Impl.HiMQConsumerImpl();
     }
 }
