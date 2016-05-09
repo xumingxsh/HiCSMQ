@@ -7,7 +7,13 @@ using Apache.NMS.ActiveMQ.Commands;
 
 namespace HiCSMQ.Impl
 {
+    /// <summary>
+    /// 接收到主题消息后的回调事件
+    /// </summary>
+    /// <param name="topic"></param>
+    /// <param name="msg"></param>
     public delegate void MQMsgCallback(string topic, string msg);
+
     class HiMQConsumerImpl : HiMQBase
     {
         MQMsgCallback callback = null;
